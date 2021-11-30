@@ -13,7 +13,7 @@ if __name__ == "__main__":
     
     # Trainer's settings
     load_checkpoint = True
-    chkpt_dir = 'tmp/ppo'
+    chkpt_dir = 'tmp/trained_model'
     render = True
     n_trials = 1
     n_episodes = 10
