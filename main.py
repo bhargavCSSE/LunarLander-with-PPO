@@ -12,21 +12,21 @@ if __name__ == "__main__":
     env = gym.make("LunarLander-v2")
     
     # Trainer's settings
-    load_checkpoint = False
+    load_checkpoint = True
     chkpt_dir = 'tmp/ppo'
     render = True
     n_trials = 1
-    n_episodes = 300
+    n_episodes = 10
 
     # PPO params
     N = 20
-    batch_size = 10
-    n_epochs = 3
+    batch_size = 5
+    n_epochs = 10
     alpha = 0.0003 
-    gamma = 0.9
+    gamma = 0.99
     best_score = env.reward_range[0]
-    layer_1_dim = 128
-    layer_2_dim = 128
+    layer_1_dim = 256
+    layer_2_dim = 256
 
     # Final results
     score_book = {}
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     for trial in range(n_trials):
         print('\nTrial:', trial+1)
         agent = Agent(n_actions=env.action_space.n, batch_size=batch_size, alpha=alpha,
-                        n_epochs=n_epochs, input_dims=env.observation_space.shape, gamma=0.9,
+                        n_epochs=n_epochs, input_dims=env.observation_space.shape, gamma=gamma,
                         fc1_dims=layer_1_dim, fc2_dims=layer_2_dim, chkpt_dir=chkpt_dir)
         
         # Initialize storage pointers
@@ -94,6 +94,9 @@ if __name__ == "__main__":
                 if not load_checkpoint:
                     # print("Saving Model")
                     agent.save_models()
+            
+            if i%100 == 0:
+                agent.save_custom_models(count=i)
         
             # print('episode', i, 'score %.2f' % score, 'avg_score %.2f' % avg_score, 'time_steps', n_steps, 'learning_steps', learn_iters)
 

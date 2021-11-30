@@ -43,7 +43,7 @@ nbformat==5.1.3
 nest-asyncio==1.5.1
 networkx==2.5
 notebook==6.3.0
-numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1603570489231/work
+numpy 
 olefile==0.46
 packaging==20.9
 pandas==1.2.4
@@ -70,7 +70,7 @@ QtPy==1.9.0
 scikit-learn==0.24.1
 scipy==1.6.2
 Send2Trash==1.5.0
-six @ file:///tmp/build/80754af9/six_1605205327372/work
+six 
 sklearn==0.0
 snooty-lextudio==1.8.10.dev0
 terminado==0.9.4
@@ -83,7 +83,7 @@ torchvision==0.9.1
 tornado==6.1
 tqdm==4.60.0
 traitlets==5.0.5
-typing-extensions @ file:///home/ktietz/src/ci_mi/typing_extensions_1612808209620/work
+typing-extensions 
 ujson==1.35
 watchdog==1.0.2
 wcwidth==0.2.5

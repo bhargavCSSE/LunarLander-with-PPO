@@ -6,9 +6,7 @@ The PPO code was derived from an excellent video tutorial on https://youtu.be/hl
 **HOW TO RUN**
 1. Create a python environment (python==3.8 recommended) and install pip dependencies using requirements.txt
 ```
-conda create -n mnist_rl python==3.8
-conda activate mnist_rl
-pip install -r requirements.txt
+conda 
 ```
 2. Tune PPO parameters (not neccessary) and adjust number of trials and number of episodes in **main.py**.
 3. Run the code using following command.

@@ -74,6 +74,10 @@ class ActorNetwork(nn.Module):
     def save_checkpoint(self):
         T.save(self.state_dict(), self.checkpoint_file)
 
+    def save_custom_checkpoint(self, count):
+        checkpoint_file = self.checkpoint_file + '_' + str(count)
+        T.save(self.state_dict(), checkpoint_file)
+
     def load_checkpoint(self):
         self.load_state_dict(T.load(self.checkpoint_file))
 
@@ -101,6 +105,10 @@ class CriticNetwork(nn.Module):
 
     def save_checkpoint(self):
         T.save(self.state_dict(), self.checkpoint_file)
+    
+    def save_custom_checkpoint(self, count):
+        checkpoint_file = self.checkpoint_file + '_' + str(count)
+        T.save(self.state_dict(), checkpoint_file)
 
     def load_checkpoint(self):
         self.load_state_dict(T.load(self.checkpoint_file))
@@ -125,6 +133,10 @@ class Agent:
         # print("....saving models....")
         self.actor.save_checkpoint()
         self.critic.save_checkpoint()
+    
+    def save_custom_models(self, count):
+        self.actor.save_custom_checkpoint(count=count)
+        self.critic.save_custom_checkpoint(count=count)
 
     def load_models(self):
         # print("....loading models....")
